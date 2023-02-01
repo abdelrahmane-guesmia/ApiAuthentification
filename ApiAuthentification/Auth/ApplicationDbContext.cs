@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ApiAuthentification.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiAuthentification.Auth
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -13,5 +13,7 @@ namespace ApiAuthentification.Auth
         {
             base.OnModelCreating(builder);
         }
+
+        public virtual DbSet<Facesnap> facesnaps { get; set; }
     }
 }

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAuthentification", "ApiAuthentification\ApiAuthentification.csproj", "{B48B6D68-293A-4238-8BB6-2F7F5BAB9F88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuthentification", "ApiAuthentification\ApiAuthentification.csproj", "{B48B6D68-293A-4238-8BB6-2F7F5BAB9F88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestApiAuthentification", "XUnitTestApiAuthentification\XUnitTestApiAuthentification.csproj", "{02A260CF-E18E-4C52-8E65-A14424396304}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B48B6D68-293A-4238-8BB6-2F7F5BAB9F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B48B6D68-293A-4238-8BB6-2F7F5BAB9F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B48B6D68-293A-4238-8BB6-2F7F5BAB9F88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02A260CF-E18E-4C52-8E65-A14424396304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A260CF-E18E-4C52-8E65-A14424396304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A260CF-E18E-4C52-8E65-A14424396304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A260CF-E18E-4C52-8E65-A14424396304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
