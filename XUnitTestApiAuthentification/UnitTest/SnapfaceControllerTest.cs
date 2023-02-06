@@ -2,13 +2,9 @@
 using ApiAuthentification.Model;
 using ApiAuthentification.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace XUnitTestApiAuthentification
+namespace XUnitTestApiAuthentification.UnitTest
 {
     public class SnapfaceControllerTest
     {
@@ -27,16 +23,16 @@ namespace XUnitTestApiAuthentification
             // Act
             var okResult = _controller.Get();
             // Assert
-            Assert.IsType<OkObjectResult>(okResult as OkObjectResult);
+            Assert.IsType<ActionResult<IEnumerable<Facesnap>>>(okResult);
         }
         [Fact]
         public void Get_WhenCalled_ReturnsAllItems()
         {
             // Act
-            var okResult = _controller.Get() as OkObjectResult;
+            var okResult = _controller.Get();
             // Assert
-            var items = Assert.IsType<List<Facesnap>>(okResult.Value);
-            Assert.Equal(1, items.Count);
+            Assert.IsType<List<Facesnap>>(okResult.Value);
+            Assert.Single(okResult.Value);
         }
         [Fact]
         public void GetById_UnknownGuidPassed_ReturnsNotFoundResult()
@@ -44,7 +40,7 @@ namespace XUnitTestApiAuthentification
             // Act
             var notFoundResult = _controller.Get(Guid.NewGuid());
             // Assert
-            Assert.IsType<NotFoundResult>(notFoundResult);
+            Assert.IsType<NotFoundResult>(notFoundResult.Result);
         }
         [Fact]
         public void GetById_ExistingGuidPassed_ReturnsOkResult()
@@ -54,7 +50,7 @@ namespace XUnitTestApiAuthentification
             // Act
             var okResult = _controller.Get(testGuid);
             // Assert
-            Assert.IsType<OkObjectResult>(okResult as OkObjectResult);
+            Assert.IsType<ActionResult<Facesnap>>(okResult);
         }
         [Fact]
         public void GetById_ExistingGuidPassed_ReturnsRightItem()
@@ -62,7 +58,7 @@ namespace XUnitTestApiAuthentification
             // Arrange
             var testGuid = new Guid("a9678c7a-ae8a-490d-8562-c88620515f12");
             // Act
-            var okResult = _controller.Get(testGuid) as OkObjectResult;
+            var okResult = _controller.Get(testGuid);
             // Assert
             Assert.IsType<Facesnap>(okResult.Value);
             Assert.Equal(testGuid, (okResult.Value as Facesnap).id);

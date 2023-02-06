@@ -19,27 +19,32 @@ namespace ApiAuthentification.Controllers
         }
         // GET: api/<FacesnapsController>
         [HttpGet]
-        public IActionResult Get()
+        [ProducesResponseType(typeof(IEnumerable<Facesnap>), 200)]
+        [ProducesResponseType(404)]
+        public ActionResult<IEnumerable<Facesnap>> Get()
         {
             var items = _facesnapService.GetFacesnaps();
-            return Ok(items);
+            return items;
         }
 
         // GET api/<FacesnapsController>/id
         [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
+        [ProducesResponseType(typeof(Facesnap), 200)]
+        [ProducesResponseType(404)]
+        public ActionResult<Facesnap> Get(Guid id)
         {
             var item = _facesnapService.GetSingleFacesnap(id);
             if (item == null)
             {
                 return NotFound();
             }
-            return Ok(item);
+            return item;
         }
 
         // POST api/<FacesnapsController>
         [HttpPost]
         [Authorize(Roles = UserRoles.Admin)]
+        [ProducesResponseType(201)]
         public IActionResult Create([FromBody] Facesnap facesnap)
         {
             if (ModelState.IsValid)

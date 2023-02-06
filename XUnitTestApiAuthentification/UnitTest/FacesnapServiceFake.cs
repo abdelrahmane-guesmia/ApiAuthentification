@@ -1,12 +1,7 @@
 ﻿using ApiAuthentification.Model;
 using ApiAuthentification.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace XUnitTestApiAuthentification
+namespace XUnitTestApiAuthentification.UnitTest
 {
     public class FacesnapServiceFake : IFacesnapService
     {
@@ -16,7 +11,7 @@ namespace XUnitTestApiAuthentification
             _facesnaps = new List<Facesnap>()
             {
                 new Facesnap() { id = new Guid("a9678c7a-ae8a-490d-8562-c88620515f12"),
-                    title = "test", description="test", imageUrl = "test", snaps = 0, 
+                    title = "test", description="test", imageUrl = "test", snaps = 0,
                     location = "test", createdAt = new DateTime(2023,1,31,15,1,35,124) },
             };
         }
